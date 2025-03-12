@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model admin {
+  id         String   @id @unique(map: "id_UNIQUE") @default(uuid()) @db.VarChar(155)
+  name       String?  @db.VarChar(45)
+  email      String?  @db.VarChar(45)
+  phone      String?  @db.VarChar(45)
+  password   String?  @db.VarChar(145)
+  hash       String?  @db.VarChar(145)
+  crated_at  DateTime @default(now()) @db.DateTime(0)
+  updated_at DateTime @updatedAt @db.DateTime(0)
+  role       Int?     @db.TinyInt
+  is_enabled Int      @default(1) @db.TinyInt
+}
+
+model users {
+  id         String    @id @default(uuid())
+  name       String?
+  email      String?
+  phone      String
+  address    String
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt
+  is_enabled Int?      @default(1) @db.TinyInt
+}
+
+model visitors {
+  id            String    @id @default(uuid())
+  name          String?
+  email         String?
+  phone         String
+  address       String
+  created_at    DateTime  @default(now())
+  updated_at    DateTime? @updatedAt
+  to_meet       String?
+  type_of_visit String?
+  purpose       String?
+  visit_date    DateTime
+  is_enabled    Int?      @default(1) @db.TinyInt
+  visit_status  String    @default("PENDING")
+}
