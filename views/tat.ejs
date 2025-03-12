@@ -1,0 +1,187 @@
+<%- include('header.ejs') %>
+
+    <style>
+        input,
+        select {
+            width: 250px !important;
+        }
+
+        .btn {
+            width: 150px !important;
+            color: rgb(99, 154, 5) !important;
+            border: 2px solid rgb(99, 154, 5) !important;
+        }
+    </style>
+
+
+    <div class="container-fluid my-4 p-3">
+        <h3 class="text-muted text-center">TAT Calculator</h3>
+        <!-- first row -->
+        <div class="main  p-4   border border-2 " style="background-color: rgb(255,255,255);">
+
+            <div class="row p-2 mt-4">
+                <div class="col d-flex justify-content-between-5">
+
+                    <div class="one d-flex">
+                        <div class="label mx-4">Job Number</div>
+                        <div class="label mx-4">
+                            <input type="text" name="" id="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="one d-flex">
+                        <div class="label mx-4">Word Count</div>
+                        <div class="label mx-4">
+                            <input type="text" name="" id="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="one d-flex">
+                        <div class="label mx-4">Document Type</div>
+                        <div class="label mx-4">
+                            <select class="form-select">
+                                <option selected="" value="">Select an option</option>
+                                <option value="Short (Word count < hourly capacity)">Short (Word count &lt; hourly
+                                    capacity)</option>
+                                <option value="Samples">Samples</option>
+                                <option value="JA - CV / Resume">JA: CV / Resume</option>
+                                <option value="JA - Cover letter/Other application/Academic/Business">JA: Cover
+                                    letter/Other application/Academic/Business)</option>
+                                <option value="Writers">Writers</option>
+                                <option value="Revision request: Full revision">Revision request: Full revision</option>
+                                <optgroup _ label="Revision request - Formatting only">
+                                    <option value="Word count less than 10000">Word count less than 10000</option>
+                                    <option value="Word count between 10 - 20 K">Word count between 10 - 20 K</option>
+                                    <option value="Word count between 20 - 40 K">Word count between 20 - 40 K</option>
+                                    <option value="Word count greater than 40000">Word count greater than 40000</option>
+                                </optgroup>
+                                <option value="Acceleration for urgent order">Acceleration for urgent order</option>
+                                <option value="PDFs/PPTs">PDFs/PPTs</option>
+                                <option value="Referencing section of split documents">Referencing section of split
+                                    documents</option>
+                                <option value="Author Services Writing order">Author Services Writing order</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="one d-flex">
+                        <div class="label mx-4">Editor Name</div>
+                        <div class="label mx-4">
+                            <select class="form-select">
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                                <option value="a">ajay</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+
+                    <button class="btn btn-outline-success">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- second row -->
+
+        <div class="main-2 p-4 border border-2 mt-5" style="background-color: rgb(255,255,255);">
+            <div class="row p-2">
+                <div class="col-md-5 p-3 border border-2 ms-5">
+                    <div class="one d-flex justify-content-between mt-3">
+                        <div class="">
+                            Editor Spped
+                        </div>
+                        <div class="">
+                            <select name="" id="" class="form-select">
+                                <option value="1">1000</option>
+                                <option value="1">1000</option>
+                                <option value="1">1000</option>
+                                <option value="1">1000</option>
+                                <option value="1">1000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="one d-flex justify-content-between mt-3">
+                        <div class="">
+                            Editor latest due date
+                        </div>
+                        <div class="">
+                            <input type="text" name="" id="" class="form-control" placeholder="  25 Oct 2023 ,06:00 PM">
+
+                        </div>
+                    </div>
+                    <div class="one d-flex justify-content-between mt-3">
+                        <div class="">
+                            Customer due date
+                        </div>
+                        <div class="">
+                            <input type="text" name="" id="" class="form-control" placeholder="  25 Oct 2023 ,06:00 PM">
+                        </div>
+                    </div>
+                    <div class="one d-flex justify-content-between mt-3">
+                        <div class="">
+                            Extended by Operations
+                        </div>
+                        <div class="">
+                            <input type="text" name="" id="" class="form-control" placeholder="No">
+                        </div>
+                    </div>
+                    <div class="one d-flex justify-content-between mt-3">
+                        <div class="">
+                            Delivery Type
+                        </div>
+                        <div class="">
+                            <input type="text" name="" id="" class="form-control" placeholder="Standard">
+                        </div>
+                    </div>
+                    <div class="one d-flex justify-content-between mt-3">
+                        <div class="">
+                            Standard speed for Document Type
+                        </div>
+                        <div class="">
+                            <input type="text" name="" id="" class="form-control" placeholder="500">
+                        </div>
+                    </div>
+                    <div class="one d-flex justify-content-center mt-5">
+                        <div class="">
+                        </div>
+                        <div >
+                           <button class="btn btn-outline-success">Recalculate</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 p-5 border border-2  offset-md-1 ">
+                    <div class="one d-flex justify-content-between mt-3">
+                        <div class="">
+                            Suggested Turnaround Time
+                        </div>
+                        <div class="text-start">
+                            04:00
+                        </div>
+                    </div>
+                    <div class="one d-flex justify-content-between mt-3">
+                        <div class="">
+                            Suggested Editor Due Date
+                        </div>
+                        <div class="">
+                            25 Oct 2023 , 06:00 PM
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,90 @@
+<%- include('adminHeader.ejs') %>
+
+    <style>
+        .card {
+            height: 300px !important;
+        }
+        
+    </style>
+    <% if (isError) { %>
+        <script>
+            alert("<%= message %>")
+        </script>
+        <% } %>
+           
+
+            <div class="container my-5">
+                <div class="row my-4">
+                    <h1 class="text-start text-primary">
+                        Welcome  <%= admin.name %>
+                    </h1>
+                    <div class="col-md-4 offset-md-2 p-3 ">
+                        <div class="card shadow-5-strong rounded-8 " style="background-color: #F06292
+
+
+
+            ;">
+                            <div class="card-header text-dark fw-bold text-primary fs-3 text-center">Total Users <%=
+                                    list.totalUsers %>
+                            </div>
+                            <div class="card-body text-center">
+                                <!-- Total Users  =><%= list.totalUsers %> -->
+                                <img src="/img/group.png" alt="" height="250" style="margin-top: -60px;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-3 ">
+                        <!-- Total Visits => <%= list.totalVisits %> -->
+                        <div class="card shadow-5-strong rounded-8" style="background-color: #FFB74D
+
+
+
+
+            ;">
+                            <div class="card-header text-dark fw-bold fs-3 text-center">Total Visits <%=
+                                    list.totalVisits %>
+                            </div>
+                            <div class="card-body text-center">
+                                <!-- Total Users  =><%= list.totalUsers %> -->
+                                <!-- <i class="fas fa-users fa-7x"></i> -->
+                                <img src="/img/visit2.png" alt="" height="200" style="margin-top: -10px;">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4 p-3">
+                    <div class="col-md-4 offset-md-2">
+                        <div class="card shadow-5-strong rounded-8" style="background-color: #4DD0E1
+
+            ;">
+                            <div class="card-header text-dark fw-bold fs-3 text-center">Total Approved Visits <%=
+                                    list.totalApprovedVisits %>
+                            </div>
+                            <div class="card-body text-center">
+                                <!-- Total Users  =><%= list.totalUsers %> -->
+                                <!-- <i class="fas fa-users fa-7x"></i> -->
+                                <img src="/img/approved.png" alt="" height="200" style="margin-top: -10px;">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="card shadow-5-strong rounded-8 " style="background-color: #B39DDB
+
+;">
+                            <div class="card-header text-dark fw-bold fs-3 text-center">Total Rejected Visits 
+                                <%=list.totalRejectedVisits %>
+                            </div>
+                            <div class="card-body text-center">
+                                <!-- Total Users  =><%= list.totalUsers %> -->
+                                <!-- <i class="fas fa-users fa-7x"></i> -->
+                                <img src="/img/rejected.png" alt="" height="200" style="margin-top: -10px;">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>

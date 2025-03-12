@@ -1,0 +1,155 @@
+<%- include('header') %>
+<% if (isError) { %>
+    <script>
+        alert("<%= message %>")
+    </script>
+<% } %>
+
+<div class="container mt-5">
+    <div class="row my-5">
+        <div class="card shadow-5-strong">
+            <div class="card-body">
+                <h3 class="text-primary">Your Details :</h3>
+                <form method="post" action="/visit/request-visit">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="visitor_name">Full Name</label>
+                                <input type="text" name="visitor_name" id="visitor_name" class="form-control form-control-lg" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="visitor_email">Email</label>
+                                <input type="email" name="visitor_email" id="visitor_email" class="form-control form-control-lg" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="visitor_phone">Phone</label>
+                                <input type="text" name="visitor_phone" id="visitor_phone" class="form-control form-control-lg" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="visitor_to_meet">To Meet</label>
+                                <select  name="visitor_to_meet" id="visitor_to_meet" class="form-control form-control-lg" required onchange="getValue(this)">
+                                    <% usernames.forEach(function(username) { %>
+                                        <option value="<%= username %>"><%= username %></option>
+                                      <% }); %>
+                                
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="visitor_address">Address</label>
+                                <textarea type="text" name="visitor_address" id="visitor_address" rows=1 class="form-control form-control-lg" required> </textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="visitor_date">Date</label>
+                                <input type="datetime-local" name="visitor_date" id="visitor_date" class="form-control form-control-lg" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-primary">Person Details :</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="person_name">Full Name</label>
+                                <input type="text" name="person_name" id="person_name" class="form-control form-control-lg" required >
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="person_email">Email</label>
+                                <input type="email" name="person_email" id="person_email" class="form-control form-control-lg" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="person_phone">Phone</label>
+                                <input type="text" name="person_phone" id="person_phone" class="form-control form-control-lg" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="visitor_type">Type of visit</label>
+                                <select name="visitor_type" id="visitor_type" class="form-select" required>
+                                    <option value="">----------------------------------Select---------------------------------</option>
+                                    <option value="regular">Regular Visit</option>
+                                    <option value="guest">Guest Visit</option>
+                                    <option value="delivery">Delivery/Pickup Visit</option>
+                                    <option value="maintenance">Maintenance Visit</option>
+                                    <option value="meeting">Meeting Room Reservation</option>
+                                    <option value="event">Event Visit</option>
+                                    <option value="vendor">Vendor Visit</option>
+                                    <option value="temporary">Temporary Stay</option>
+                                    <option value="contractor">Contractor Visit</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="person_address">Address</label>
+                                <textarea type="text" name="person_address" id="person_address" rows=1 class="form-control form-control-lg" required> </textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row my-3">
+                                <label for="visitor_purpose">Purpose</label>
+                                <input type="text" name="visitor_purpose" id="visitor_purpose" class="form-control form-control-lg" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button type="reset" class="btn btn-danger mx-2" >Reset</button>
+                        <button type="submit" class="btn btn-success mx-2" >Submit</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') %>
+<script>
+   async function getValue(){
+        let value = document.getElementById('visitor_to_meet').value
+
+        try {
+        const response = await fetch('/users/get-user-by-username', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username: value }),
+        });
+
+        const data = await response.json();
+        let name = document.getElementById('person_name')
+        let email = document.getElementById('person_email')
+        let phone = document.getElementById('person_phone')
+        let address = document.getElementById('person_address')
+        name.value = data.data.name
+        email.value = data.data.email
+        phone.value = data.data.phone
+        address.value = data.data.address
+        
+      } catch (error) {
+        console.error('Error:', error);
+      }
+
+        
+    }
+</script>

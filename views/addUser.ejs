@@ -1,0 +1,47 @@
+
+<%- include('adminHeader') %>
+
+<% if (isError) { %>
+    <script>
+        alert("<%= message %>")
+    </script>
+<% } %>
+
+
+<div class="container my-5 p-3">
+    
+    <div class="row">
+        <div class="col-md-5 offset-md-3">
+            <h3 class="text-primary">Add User Details :</h3>
+            <div class="card shadow-5-strong">
+                <div class="card-body">
+                    <form method="post" action="/admin/add-user">
+
+                        <div class="form-row my-2">
+                            <label for="name" class="form-label">Full Name <span class="text-danger fw-bolder">*</span> </label>
+                            <input type="text" class="form-control form-control-lg" required id="name" name="name">
+                        </div>
+                        <div class="form-row my-2">
+                            <label for="email" class="form-label">Email <span class="text-danger fw-bolder">*</span></label>
+                            <input type="email" class="form-control form-control-lg" required id="email" name="email">
+                        </div>
+                        <div class="form-row my-2">
+                            <label for="phone" class="form-label">Phone <span class="text-danger fw-bolder">*</span></label>
+                            <input type="text" class="form-control form-control-lg" required id="phone" name="phone">
+                        </div>
+                        <div class="form-row my-2">
+                            <label for="address" class="form-label">Address <span class="text-danger fw-bolder">*</span></label>
+                            <textarea  class="form-control form-control-lg" required id="address" name="address"> </textarea>
+                        </div>
+
+
+                        <div class="form-row my-3">
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

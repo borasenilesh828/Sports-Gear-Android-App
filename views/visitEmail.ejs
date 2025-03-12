@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Request</title>
+
+    <!-- Bootstrap CSS (CDN link for demonstration purposes) -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Inline styles for better email client compatibility */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #007BFF;
+
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="">Visitor Request Status </h2>
+        <p class="text-muted"> <%= visitor.message %> </p>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>Field</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td><strong>Name</strong></td>
+                <td>
+                    <%= visitor.name %>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Email</strong></td>
+                <td>
+                    <%= visitor.email %>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Phone</strong></td>
+                <td>
+                    <%= visitor.phone %>
+                </td>
+            </tr>
+          
+            <tr>
+                <td><strong>Address</strong></td>
+                <td>
+                    <%= visitor.address %>
+                </td>
+            </tr>
+          
+            <tr>
+                <td><strong>Type for Visit</strong></td>
+                <td>
+                    <%= visitor.type_of_visit %>
+                </td>
+            </tr>
+          
+            <tr>
+                <td><strong>Purpose of Visit</strong></td>
+                <td>
+                    <%= visitor.purpose %>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Visit Date</strong></td>
+                <td>
+                    <%= new Date(visitor.visit_date ).toLocaleString()%>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Visit Status</strong></td>
+                <td>
+                    <%= visitor.visit_status %>
+                </td>
+            </tr>
+         
+        </table>
+
+        <p  class="text-muted">Please make sure to welcome the visitor at the specified time. If there are any specific instructions or
+            requirements for the visit, kindly make the necessary arrangements.</p>
+
+        <p>Thank you and have a great day!</p>
+
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (CDN links for demonstration purposes) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

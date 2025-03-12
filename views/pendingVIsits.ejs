@@ -1,0 +1,138 @@
+<%- include('adminHeader.ejs') %>
+
+<style>
+    table thead{
+        background-color: rgb(241,241,238);
+
+    }
+
+    table,
+  thead,
+  td,
+  th,
+  tr {
+    border: 1px solid rgb(141, 145, 148);
+  }
+  
+</style>
+    <% if (isError) { %>
+        <script>
+            alert("<%= message %>")
+
+        </script>
+        <% } %>
+
+
+
+            <div class="container-fluid my-5">
+                <div class="row table-responsive ">
+                    <h3 class="text-primary">Pending Visits Details :</h3>
+
+                    <div class="card shadow-5-strong p-1">
+                        <div class="card-body">
+                            <form method="post" action="/admin/search-visits">
+                                <div class=" my-3 d-flex justify-content-end ">
+                                    <div class="mx-2"><select name="search" id="search" class="form-select">
+                                            <option value="name">Name</option>
+                                            <option value="email">Email</option>
+                                        </select></div>
+                                    <div class="mx-2">
+                                        <input type="text" name="filter" id="filter" class="form-control"
+                                            placeholder="search by name/email">
+                                        <input type="text" name="page" id="page" hidden value="pendingVIsits">
+                                        <input type="text" name="type" id="type" hidden value="PENDING">
+                                    </div>
+                                    <div class="mx-2">
+                                        <button class="btn btn-outline-success" type="submit">Search</button>
+                                        <button class="btn btn-outline-info" type="reset"
+                                            onclick="reloadAndRedirect()">reset</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="row">
+                                <table class="table table-bordered text-center">
+                                    <thead >
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Address</th>
+                                            <th>To Meet</th>
+                                            <th>Visit Type</th>
+                                            <th>Visit Date</th>
+                                            <th>Status</th>
+                                            <th colspan="2">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% if (visitsData.length===0) { %>
+                                            <tr>
+                                                <td rowspan="8" colspan="10" class="text-center">
+
+                                                    No Data found
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                    </tbody>
+                                    <tbody class="table-striped table-hover">
+                                        <% visitsData.forEach((visit, index)=> { %>
+                                            <tr>
+                                                <td>
+                                                    <%= index + 1 %>
+                                                </td>
+                                                <td>
+                                                    <%= visit.name %>
+                                                </td>
+                                                <td>
+                                                    <%= visit.email %>
+                                                </td>
+                                                <td>
+                                                    <%= visit.phone %>
+                                                </td>
+                                                <td>
+                                                    <%= visit.address %>
+                                                </td>
+                                                <td>
+                                                    <%= visit.to_meet %>
+                                                </td>
+                                                <td>
+                                                    <%= visit.type_of_visit %>
+                                                </td>
+                                         
+                                                <td>
+                                                    <%= new Date(visit.visit_date).toLocaleString() %>
+                                                </td>
+                                                <td class="">
+                                                    <%= visit.visit_status %>
+                                                </td>
+                                                <td>
+                                                    <a role="button" href="/admin/reject-visit/<%= visit.id %>"
+                                                        class="btn btn-danger">Reject Visit</a>
+                                                </td>
+                                                <td>
+                                                    <a role="button" href="/admin/approve-visit/<%= visit.id %>"
+                                                        class="btn btn-success">Approved</a>
+                                                </td>
+
+                                            </tr>
+                                            <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                function reloadAndRedirect() {
+                    
+                    location.reload();
+
+                    window.location.href = '/admin/pending-visits';
+
+                }
+            </script>
