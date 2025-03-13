@@ -1,0 +1,74 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="CONFIRM ORDER"
+      android:id="@+id/pay"
+      android:textSize="36sp"
+      android:layout_centerHorizontal="true" android:layout_marginBottom="26dp"/>
+
+  <TextView
+      android:id="@+id/paymentActivityTotalPriceTv"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/pay"
+      android:layout_marginTop="16dp"
+      android:text="Total Price: " />
+
+
+  <Button
+      android:id="@+id/netBankingButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="26dp"
+      android:layout_centerHorizontal="true"
+      android:layout_below="@id/paymentActivityTotalPriceTv"
+      android:text="Net Banking"
+      android:onClick="onNetBankingClicked" />
+
+  <Button
+      android:id="@+id/upiPaymentButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/netBankingButton"
+      android:layout_marginTop="8dp"
+      android:layout_centerHorizontal="true"
+      android:text="UPI Payment"
+      android:onClick="onUpiPaymentClicked" />
+
+  <Button
+      android:id="@+id/qrPaymentButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/upiPaymentButton"
+      android:layout_marginTop="8dp"
+      android:layout_centerHorizontal="true"
+      android:text="QR Payment"
+      android:onClick="onQrPaymentClicked" />
+
+  <ImageView
+      android:id="@+id/qrCodeImageView"
+      android:layout_width="200dp"
+      android:layout_height="200dp"
+      android:layout_below="@id/qrPaymentButton"
+      android:layout_marginTop="16dp"
+      android:layout_centerHorizontal="true"
+      android:visibility="gone"
+      android:src="@drawable/qr1" />
+
+
+  <Button
+      android:id="@+id/paymentActivityConfirmBtn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/qrCodeImageView"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="16dp"
+      android:text="Confirm Payment"
+      android:onClick="onConfirmPaymentClicked" />
+
+</RelativeLayout>

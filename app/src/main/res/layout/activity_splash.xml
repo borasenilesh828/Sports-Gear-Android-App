@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray">
+
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:contentDescription="Welcome"
+        android:layout_width="420dp"
+        android:layout_height="260dp"
+        android:src="@drawable/parts"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
