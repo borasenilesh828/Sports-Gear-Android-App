@@ -53,7 +53,7 @@ We welcome contributions! Please follow these steps:
 
 ## 📩 Contact
 For queries, reach out to:
-📧 Email: yourname@example.com
+📧 Email: borasenilesh828@gmail.com
 🔗 GitHub: [Your Profile](https://github.com/borasenilesh828)
 
 ---
